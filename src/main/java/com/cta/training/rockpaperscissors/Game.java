@@ -5,44 +5,49 @@ import org.w3c.dom.ls.LSOutput;
 import java.util.Scanner;
 
 public class Game {
+    boolean rerun = true;
 
     public void playGame() {
-        Scanner scanner = new Scanner(System.in);
+        User user = new User();
+        InternalGameLogic gameSetup = new InternalGameLogic();
 
-        System.out.println("Welcome to rock paper scissors, you're playing me!");
-        System.out.println("Please enter your guess: Rock|Paper|Scissors (Input via 1|2|3)");
+        do {
+            gameSetup.generateComputerGuess();
+            String computerGuess = gameSetup.getComputerGuess();
 
-        int userGuessInput = Integer.parseInt(scanner.next());
-        String userGuess;
+            user.setUserGuessInput();
+            int userGuessInput = user.getUserGuessInput();
+            gameSetup.convertUserGuess(userGuessInput);
+            String userGuess = gameSetup.getUserGuess();
 
-        if (userGuessInput == 1) {
-            userGuess = "rock";
-        } else if (userGuessInput == 2) {
-            userGuess = "paper";
-        } else {
-            userGuess = "scissors";
-        }
+            gameSetup.compareInputs(computerGuess, userGuess);
 
-        int randomNum = (int) (Math.random() * 3); // 0 to 2
-        String computerGuess;
+            String result = gameSetup.getResult();
 
-        if (randomNum == 0) {
-            computerGuess = "rock";
-        } else if (randomNum == 1) {
-            computerGuess = "paper";
-        } else {
-            computerGuess = "scissors";
-        }
-
-        //game logic
-            if (userGuess.equals(computerGuess)){
-                System.out.println("Draw");
-            }else if ((userGuess.equals("rock") && computerGuess.equals("paper")) || (userGuess.equals("paper") && computerGuess.equals("scissors")) || (userGuess.equals("scissors") && computerGuess.equals("rock"))){
-                System.out.println("Computer Wins");
+            //result logic, can be added to a separate class in future
+            if (result.equals("Draw")){
+                System.out.println("Computer: "+computerGuess);
+                System.out.println("User: "+userGuess);
+                System.out.println(result+ ", let's play again");
+                rerun = true;
+            }else if (result.equals("Computer Wins")){
+                System.out.println("Computer: "+computerGuess);
+                System.out.println("User: "+userGuess);
+                System.out.println(result);
+                rerun = false;
             }else{
-                System.out.println("User Wins");
+                System.out.println("Computer: "+computerGuess);
+                System.out.println("User: "+userGuess);
+                System.out.println(result);
+                rerun = false;
             }
-        System.out.println("Computer chose "+computerGuess);
-        System.out.println("User chose "+userGuess);
+
+
+
+        }while(rerun);
+
+
+
+
     }
 }
