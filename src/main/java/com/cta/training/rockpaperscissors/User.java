@@ -5,14 +5,13 @@ import java.util.Scanner;
 public class User {
     String username;
 
-    private void setUser() {
+    public void setUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter your name: ");
         username = scanner.next();
     }
 
     public String getUser() {
-        setUser();
         return username;
     }
 }

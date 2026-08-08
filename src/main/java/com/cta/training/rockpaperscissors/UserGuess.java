@@ -21,15 +21,15 @@ public class UserGuess {
         } while (!inputValidation);
     }
 
-    private int getUserGuessInput(){
+    public int getUserGuessInput(){
         return userGuessInput;
     }
 
     public void convertUserGuess(int userGuessInput){
         userGuessInput = getUserGuessInput();
-        if (userGuessInput == 0) {
+        if (userGuessInput == 1) {
             this.userGuess = "rock";
-        } else if (userGuessInput == 1) {
+        } else if (userGuessInput == 2) {
             this.userGuess = "paper";
         } else {
             this.userGuess = "scissors";

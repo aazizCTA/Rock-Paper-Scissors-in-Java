@@ -6,7 +6,7 @@ public class GameLogic {
 
     public void setResult(String computerGuess, String userGuess){
         if (userGuess.equals(computerGuess)){
-            this.result =("Draw");
+            this.result =("Draw, let's play again");
         }else if ((userGuess.equals("rock") && computerGuess.equals("paper"))
                 || (userGuess.equals("paper") && computerGuess.equals("scissors"))
                 || (userGuess.equals("scissors") && computerGuess.equals("rock"))){
@@ -21,7 +21,7 @@ public class GameLogic {
     }
 
     public void setRerun(){
-        if (result.equals("Draw")){
+        if (result.equals("Draw, let's play again")){
             rerun = true;
         }else if (result.equals("Computer Wins")){
             rerun = false;
