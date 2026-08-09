@@ -6,13 +6,15 @@ public class UserGuess {
     int userGuessInput;
     String userGuess;
 
-    public void setUserGuessInput() {
+    protected void setUserGuessInput() {
         boolean inputValidation = true;
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("Please enter your guess: Rock|Paper|Scissors (Input via 1|2|3)");
             this.userGuessInput = Integer.parseInt(scanner.next());
-            if ((userGuessInput == 1) || (userGuessInput == 2) || (userGuessInput == 3)) {
+            if ((userGuessInput == 1)
+                    || (userGuessInput == 2)
+                    || (userGuessInput == 3)) {
                 inputValidation = true;
             } else {
                 System.out.println("Invalid input, please try again.");
@@ -21,11 +23,11 @@ public class UserGuess {
         } while (!inputValidation);
     }
 
-    public int getUserGuessInput(){
+    protected int getUserGuessInput(){
         return userGuessInput;
     }
 
-    public void convertUserGuess(int userGuessInput){
+    protected void convertUserGuess(int userGuessInput){
         userGuessInput = getUserGuessInput();
         if (userGuessInput == 1) {
             this.userGuess = "rock";
@@ -36,7 +38,7 @@ public class UserGuess {
         }
     }
 
-    public String getUserGuess(){
+    protected String getUserGuess(){
         return userGuess;
     }
 

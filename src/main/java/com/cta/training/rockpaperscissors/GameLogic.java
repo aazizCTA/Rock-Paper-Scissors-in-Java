@@ -4,7 +4,7 @@ public class GameLogic {
     String result;
     boolean rerun;
 
-    public void setResult(String computerGuess, String userGuess){
+    protected void setResult(String computerGuess, String userGuess){
         if (userGuess.equals(computerGuess)){
             this.result =("Draw, let's play again");
         }else if ((userGuess.equals("rock") && computerGuess.equals("paper"))
@@ -16,11 +16,11 @@ public class GameLogic {
         }
     }
 
-    public String getResult(){
+    protected String getResult(){
         return result;
     }
 
-    public void setRerun(){
+    protected void setRerun(){
         if (result.equals("Draw, let's play again")){
             rerun = true;
         }else if (result.equals("Computer Wins")){
@@ -30,7 +30,7 @@ public class GameLogic {
         }
     }
 
-    public boolean getRerun(){
+    protected boolean getRerun(){
         return rerun;
     }
 

@@ -19,7 +19,7 @@ public class Game {
             computerGuess.generateComputerGuess();
             String cGuess = computerGuess.getComputerGuess();
 
-            System.out.println(cGuess);//for manual testing
+            System.out.println(cGuess);//for testing win/loss/draw cases
 
             userGuess.setUserGuessInput();
             int userGuessInput = userGuess.getUserGuessInput();

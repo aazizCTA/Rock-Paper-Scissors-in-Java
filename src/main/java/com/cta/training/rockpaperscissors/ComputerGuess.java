@@ -2,7 +2,8 @@ package com.cta.training.rockpaperscissors;
 
 public class ComputerGuess {
     String computerGuess;
-    public void generateComputerGuess(){
+
+    protected void generateComputerGuess(){
         int randomNum = (int) (Math.random() * 3); // 0 to 2
         if (randomNum == 0) {
             this.computerGuess = "rock";
